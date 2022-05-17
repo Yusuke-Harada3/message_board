@@ -13,21 +13,20 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(
-                name = "getAllMessages",
-                query = "SELECT m FROM Message AS m ORDER BY m.id DESC"
-                )
-
+    @NamedQuery(
+            name = "getAllMessages",
+            query = "SELECT m FROM Message AS m ORDER BY m.id DESC"
+            )
 })
 @Table(name="messages")
 public class Message {
 
         @Id
-        @Column(name="id")
+        @Column(name = "id")
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Integer id;
 
-        @Column(name = "title")
+        @Column(name = "title", length = 255, nullable = false)
         private String title;
 
         @Column(name="content",length=255,nullable=false)
